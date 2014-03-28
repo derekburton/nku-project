@@ -1,1 +1,1 @@
-# NKU Project Repo
+# Derek Burton's Rails App
