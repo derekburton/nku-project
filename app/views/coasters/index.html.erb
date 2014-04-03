@@ -1,0 +1,16 @@
+<h1>Coaster Reviews</h1>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Location</td>
+    <td>Image</td>
+  </tr>
+  <%= Coaster.all.each do |coaster| %>
+   <tr>
+     <td><%= coaster.name %></td>
+     <td><%= coaster.location %></td>
+     <td><img src=<%= img_url(coaster) %> /></td>
+   </tr>
+  <% end %>
+</table>

@@ -1,0 +1,35 @@
+<h1>Add A New Coaster</h1>
+
+<%= form_for :coaster do |f| %>
+
+  <% if @coaster.errors.any? %>
+    <h2> Form is invalid </h2>
+    <% for message in @coaster.errors.full_messages %>
+      <h3> <%= message %>  </h3>
+    <% end %>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </p>
+
+  <p>
+    <%= f.label :description, "Description of the coaster, like the type and when it was built." %><br> 
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :image_url, "Image URL" %><br>
+    <%= f.text_field :image_url %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
