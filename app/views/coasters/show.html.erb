@@ -1,17 +1,9 @@
-<p>
-  <strong>Name:</strong>
-  <%= @coaster.name %>
-</p>
+<h3><%= @coaster.name %></h3>
 
-<p>
-  <strong>Location:</strong>
-  <%= @coaster.location %>
-</p>
+<h4>Located at <%= @coaster.location %></h4>
+
+<img src= <%= img_url(@coaster) %> />
 
 <p>
   <%= @coaster.description %>
-</p>
-
-<p>
-  <img src= <%= img_url(@coaster) %> />
 </p>

@@ -1,14 +1,5 @@
-<head>
-  <style>
-    td {    
-    display: block;
-    float: left;
-    padding: 10px 0;
-    margin-right:50px;
-    background: white;
-  }
-  </style>
-</head>
+<head><style>th, td { padding: 5px; }</style></head>
+
 <body>
 
 <h1>Coaster Reviews</h1>
@@ -16,14 +7,12 @@
 <table>
   <tr>
     <td>Name</td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Location</td>
-    <!--<td>Image</td>-->
+    <td>Location</td>
   </tr>
   <% Coaster.all.each do |coaster| %>
    <tr>
-     <td><%= link_to(coaster.name, coaster) %></td>
+     <td><%= link_to(coaster.name, coaster) %>&nbsp;&nbsp;</td>
      <td><%= coaster.location %></td>
-    <!-- <td><img src= <%= img_url(coaster) %> /></td> -->
    </tr>
   <% end %>
 </table>
