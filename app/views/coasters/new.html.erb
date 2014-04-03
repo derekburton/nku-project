@@ -1,6 +1,6 @@
 <h1>Add A New Coaster</h1>
 
-<%= form_for :coaster do |f| %>
+<%= form_for @coaster, url: coasters_path do |f| %>
 
   <% if @coaster.errors.any? %>
     <h2> Form is invalid </h2>

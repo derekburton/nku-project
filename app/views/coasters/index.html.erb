@@ -1,16 +1,31 @@
+<head>
+  <style>
+    td {    
+    display: block;
+    float: left;
+    padding: 10px 0;
+    margin-right:50px;
+    background: white;
+  }
+  </style>
+</head>
+<body>
+
 <h1>Coaster Reviews</h1>
 
 <table>
   <tr>
     <td>Name</td>
-    <td>Location</td>
-    <td>Image</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Location</td>
+    <!--<td>Image</td>-->
   </tr>
-  <%= Coaster.all.each do |coaster| %>
+  <% Coaster.all.each do |coaster| %>
    <tr>
-     <td><%= coaster.name %></td>
+     <td><%= link_to(coaster.name, coaster) %></td>
      <td><%= coaster.location %></td>
-     <td><img src=<%= img_url(coaster) %> /></td>
+    <!-- <td><img src= <%= img_url(coaster) %> /></td> -->
    </tr>
   <% end %>
 </table>
+  
+</body>

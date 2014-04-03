@@ -8,7 +8,7 @@ class CoastersController < ApplicationController
   end
   
   def create
-    @coaster = Coaster.new(params[:coaster].permit(:name, :location, :description, :image_url))
+    @coaster = Coaster.new(coaster_params)
     
     if @coaster.save
       redirect_to coasters_path
@@ -20,5 +20,10 @@ class CoastersController < ApplicationController
   
   def show
     @coaster = Coaster.find(params[:id])
+  end
+  
+  private
+  def coaster_params
+    params.require(:coaster).permit(:name, :location, :description, :image_url)
   end
 end
