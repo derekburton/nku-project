@@ -7,3 +7,5 @@ Update for Assignment Due 4-4-2014
 
 To use just create a coaster and place details in it.
 
+Also have session controller, just haven't implemented sessions yet...
+

@@ -1,4 +1,9 @@
-<head><style>th, td { padding: 5px; }</style></head>
+<head>
+  <style>
+    th, td { padding: 5px; } 
+    h1 { color: #3300CC; font-weight:800; }
+  </style>
+</head>
 
 <body>
 
@@ -6,8 +11,8 @@
 
 <table>
   <tr>
-    <td>Name</td>
-    <td>Location</td>
+    <th>Name</th>
+    <th>Location</th>
   </tr>
   <% Coaster.all.each do |coaster| %>
    <tr>

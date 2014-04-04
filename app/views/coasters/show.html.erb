@@ -1,9 +1,26 @@
-<h3><%= @coaster.name %></h3>
+<head>
+  <style>
+    p { word-wrap:break-word; width:35em; }
+  </style>
+</head>
+
+<body>
+
+<h2><%= @coaster.name %></h2>
 
 <h4>Located at <%= @coaster.location %></h4>
-
-<img src= <%= img_url(@coaster) %> />
-
+  
 <p>
   <%= @coaster.description %>
 </p>
+  
+  <img src= <%= img_url(@coaster) %> />
+
+
+<% if(@coaster.video_url.present?) %>
+
+  <iframe width="560" height="315" src="//www.youtube.com/embed/<%= @coaster.video_url %>" frameborder="0" allowfullscreen></iframe> 
+
+<% end %>
+  
+</body>

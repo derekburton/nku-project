@@ -1,5 +1,7 @@
 <h1>Add A New Coaster</h1>
 
+<h6>Fields with * required</h6>
+
 <%= form_for @coaster, url: coasters_path do |f| %>
 
   <% if @coaster.errors.any? %>
@@ -10,25 +12,30 @@
   <% end %>
 
   <p>
-    <%= f.label :name %><br>
+    <%= f.label :name, "Name*" %><br>
     <%= f.text_field :name %>
   </p>
  
   <p>
-    <%= f.label :location %><br>
+    <%= f.label :location, "Location*" %><br>
     <%= f.text_field :location %>
   </p>
 
   <p>
-    <%= f.label :description, "Description of the coaster, like the type and when it was built." %><br> 
+    <%= f.label :description, "Description of the coaster, like the type and when it was built.*" %><br> 
     <%= f.text_area :description %>
   </p>
 
   <p>
     <%= f.label :image_url, "Image URL" %><br>
-    <%= f.text_field :image_url %>
+    <%= f.text_field :video_url %>
   </p>
  
+  <p>
+    <%= f.label :video_url, "Video YouTube URL Ending (part after v=)" %><br>
+    <%= f.text_field :image_url %>
+  </p>
+
   <p>
     <%= f.submit %>
   </p>
