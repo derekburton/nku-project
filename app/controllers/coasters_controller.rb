@@ -4,7 +4,12 @@ class CoastersController < ApplicationController
   end
   
   def new
-    @coaster = Coaster.new
+    if(session[:user_id])
+      @coaster = Coaster.new
+    else
+      redirect_to coasters_path
+      flash.now[:error] = "Not logged in"
+    end
   end
   
   def create
