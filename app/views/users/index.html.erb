@@ -1,0 +1,24 @@
+<head>
+  <style>
+    th, td { padding: 5px; } 
+  </style>
+</head>
+
+<body>
+
+<h1>All users</h1>
+
+<table>
+  <tr>
+    <td>Name&nbsp;&nbsp;</td>
+    <td>Email</td>
+  </tr>
+<% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %>&nbsp;&nbsp;</td>
+      <td><%= user.email %></td>
+    </tr>
+<% end %>
+</table>
+  
+</body>
