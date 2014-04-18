@@ -5,14 +5,12 @@ class SessionsController < ApplicationController
   
   def create
     if session[:user_id]
-      redirect_to coasters_path
-      flash[:error] = 'Already logged in'
+      redirect_to coasters_path, notice: "Already logged in"
     else
       @user = User.find_by(email: session_params[:email])
       if @user && @user.authenticate(session_params[:password])
         session[:user_id] = @user.id
-        redirect_to coasters_path
-        flash[:signedup] = 'Welcome'
+        redirect_to coasters_path, notice: 'Welcome'
       else
         flash[:error] = 'Email/password incorrect'
         render 'new'
@@ -23,8 +21,7 @@ class SessionsController < ApplicationController
   def destroy
     if session[:user_id]
       session[:user_id] = nil
-      flash[:loggedout] = 'Logged out'
-      redirect_to coasters_path
+      redirect_to coasters_path, notice: 'Logged out'
     end
   end
   

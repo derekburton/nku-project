@@ -7,8 +7,7 @@ class CoastersController < ApplicationController
     if(session[:user_id])
       @coaster = Coaster.new
     else
-      redirect_to coasters_path
-      flash.now[:error] = "Not logged in"
+      redirect_to coasters_path, notice: "Not logged in"
     end
   end
   
@@ -16,8 +15,7 @@ class CoastersController < ApplicationController
     @coaster = Coaster.new(coaster_params)
     
     if @coaster.save
-      redirect_to coasters_path
-      flash.now[:saved] = 'Coaster added'
+      redirect_to coasters_path, notice: 'Coaster added'
     else
       render 'new'
     end

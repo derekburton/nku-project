@@ -9,15 +9,13 @@ class UsersController < ApplicationController
   
   def create
     if session[:user_id]
-      redirect_to coasters_path
-      flash[:error] = "Already logged in as user"
+      redirect_to coasters_path, notice: "Already logged in as user"
     else
       @user = User.new(params[:user].permit(:name, :email, :password, :password_confirmation))
     
       if @user.save
-        redirect_to coasters_path
+        redirect_to coasters_path, notice: "User created"
         session[:user_id] = @user.id
-        flash.now[:saved] = 'User created'
       else
         render 'new'
       end   
@@ -26,28 +24,26 @@ class UsersController < ApplicationController
   
   def edit
     if(session[:user_id] == nil)
-       redirect_to signin_session_path
+      redirect_to signin_session_path, notice: "Not logged in"
     end
     @user = User.find(params[:id])
   end
   
   def update
     if(session[:user_id] == nil)
-       redirect_to signin_session_path
+      redirect_to signin_session_path, notice: "Not logged in"
     end
     
     @user = User.find(params[:id])
  
     if session[:user_id] == @user.id
       if @user.update(params[:user].permit(:name, :nickname, :email, :password_digest))
-        redirect_to coasters_path
-        flash[:update] = 'User updated'
+        redirect_to coasters_path, notice: 'User updated'
       else
         render 'edit'
       end
     else
-      flash[:error] = 'Not logged in as user'
-      redirect_to coasters_path
+      redirect_to coasters_path, notice: "Not logged in as user"
     end
   end
 end
