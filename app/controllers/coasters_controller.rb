@@ -29,6 +29,6 @@ class CoastersController < ApplicationController
   
   private
   def coaster_params
-    params.require(:coaster).permit(:name, :location, :description, :image_url)
+    params.require(:coaster).permit(:name, :location, :description, :image_url, :video_url)
   end
 end

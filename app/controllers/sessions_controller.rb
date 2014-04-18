@@ -4,14 +4,19 @@ class SessionsController < ApplicationController
   end
   
   def create
-    @user = User.find_by(email: session_params[:email])
-    if @user && @user.authenticate(session_params[:password])
-      session[:user_id] = @user.id
+    if session[:user_id]
       redirect_to coasters_path
-      flash[:signedup] = 'Welcome'
+      flash[:error] = 'Already logged in'
     else
-      flash[:error] = 'Email/password incorrect'
-      render 'new'
+      @user = User.find_by(email: session_params[:email])
+      if @user && @user.authenticate(session_params[:password])
+        session[:user_id] = @user.id
+        redirect_to coasters_path
+        flash[:signedup] = 'Welcome'
+      else
+        flash[:error] = 'Email/password incorrect'
+        render 'new'
+      end
     end
   end
   
