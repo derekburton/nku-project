@@ -13,5 +13,3 @@ Log in at the top.
 * This also has a show page which shows a description and a picture as well as everything else shown on the index page.
 
 To use just create a coaster and place details in it.
-
-Also have session controller, just haven't implemented sessions yet...
