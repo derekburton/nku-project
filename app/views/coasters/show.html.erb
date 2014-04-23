@@ -22,5 +22,31 @@
   <iframe width="560" height="315" src="//www.youtube.com/embed/<%= @coaster.video_url %>" frameborder="0" allowfullscreen></iframe> 
 
 <% end %>
+
+<div class="bg-primary">  
+<h4><%= @coaster.name %> Reviews</h4>
+<% if @reviews.empty? %>
+
+  <h5>No reviews submitted yet</h5>
   
+<% else %>
+
+<table>
+  <tr>  
+    <th>Name</th>
+    <th>Rating</th>
+    <th>Review</th>
+  </tr>
+<% @reviews.all do |r| %>
+ 
+  <tr>
+    <td><%= User.find(r.user_id).name%></td>
+    <td><%= r.rating %></td>
+    <td><p><%= r.review %></p></td>
+  </tr>
+  
+<% end %>
+<% end %>
+</table>    
+  </div>
 </body>

@@ -23,6 +23,7 @@ class CoastersController < ApplicationController
   
   def show
     @coaster = Coaster.find(params[:id])
+    @reviews = Review.where(coaster_id: params[:id])
   end
   
   private
