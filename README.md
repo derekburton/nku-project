@@ -3,7 +3,10 @@
 ### Update for Assignment Due 5-2-2014
 
 * This adds reviews to the application, and you can only add a review to the application if you are logged in.
-* Logged in users can see their reviews.
+* Logged in users can see all of their reviews in a seperate page.
+* If you have reviewed, you can't review the same coaster again. (obvious)
+
+Login, select coaster, and make your review.
 
 ### Update for Assignment Due 4-18-2014
 
