@@ -1,5 +1,10 @@
 # Coaster Reviews
 
+### Update for Assignment Due 5-2-2014
+
+* This adds reviews to the application, and you can only add a review to the application if you are logged in.
+* Logged in users can see their reviews.
+
 ### Update for Assignment Due 4-18-2014
 
 * This adds users to the application, in which you can only create a coaster if you are logged in.

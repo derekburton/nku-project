@@ -10,9 +10,7 @@
 
 <h4>Located at <%= @coaster.location %></h4>
   
-<p class="bg-primary">
-  <%= @coaster.description %>
-</p>
+  <p><%= @coaster.description %></p>
   
   <img src= <%= img_url(@coaster) %> />
 
@@ -22,8 +20,7 @@
   <iframe width="560" height="315" src="//www.youtube.com/embed/<%= @coaster.video_url %>" frameborder="0" allowfullscreen></iframe> 
 
 <% end %>
-
-<div class="bg-primary">  
+  
 <h4><%= @coaster.name %> Reviews</h4>
 <% if @reviews.empty? %>
 
@@ -31,22 +28,42 @@
   
 <% else %>
 
+  <p> Average Rating is a <%= @reviews.avg_review %> / 5 </p>  
+  
 <table>
   <tr>  
     <th>Name</th>
     <th>Rating</th>
     <th>Review</th>
   </tr>
-<% @reviews.all do |r| %>
- 
+  
+<% @reviews.each do |r| %>
   <tr>
-    <td><%= User.find(r.user_id).name%></td>
-    <td><%= r.rating %></td>
+    <td><%= User.find(r.user_id).name %></td>
+    <td><%= r.rating %> / 5</td>
     <td><p><%= r.review %></p></td>
   </tr>
+<% end %>
   
 <% end %>
+</table>
+  
+  <% if session[:user_id] != nil && Review.where(user_id: session[:user_id], coaster_id: params[:id]).empty? %>
+<h4>Create A Review</h4>  
+  
+<%= form_for([@coaster, @coaster.reviews.build]) do |f| %>
+  <p>
+    <%= f.label :rating %><br />
+    <%= f.select :rating, 1..5 %>
+  </p>
+  <p>
+    <%= f.label :review %><br />
+    <%= f.text_area :review %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
 <% end %>
-</table>    
-  </div>
+  
+<% end %>
 </body>

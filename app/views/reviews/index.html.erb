@@ -1,0 +1,16 @@
+<h2><%= User.find_by(session[:user_id]).name %>'s Reviews</h2>
+
+<table>
+  <tr>
+    <th>Coaster Name</th>
+    <th>Rating</th>
+    <th>Review</th>
+  </tr>
+  <% @show_reviews.each do |r| %>
+    <tr>
+      <td><%= Coaster.find(r.coaster_id).name %></td>
+      <td><%= r.rating %></td>
+      <td><p><%= r.review %></p></td>
+    </tr>
+  <% end %>
+</table>
